@@ -12,7 +12,8 @@ We need a SD card formatted with FAT32 file system.
 * Click Erase
 * Select **MS-DOS (FAT)** as format and **GUID Partition Map** as scheme
 * Click **Erase**
-![Disk Utility image](https://github.com/KHP-Informatics/RADAR-Pi3/images/diskutility.png)
+![Disk Utility image](https://github.com/KHP-Informatics/RADAR-Pi3/blob/master/images/diskutility.png)
+
 ### Installation
 * Open a terminal and run `df -h`
 * Connect the SD card reader with the SD card inside
@@ -21,7 +22,8 @@ We need a SD card formatted with FAT32 file system.
 * Infer the device name raw from the partition, removing the final **s1** and adding a **r**. Therefore `/dev/disk2s1` becomes `/dev/rdisk2`
 * Write the image to the card `sudo dd bs=1m if=2<img-path> of=<raw-name>`. In my case `sudo dd bs=1m if=Desktop/andrpi3-20160626.img of=/dev/rdisk2`. This command does not provide any information until the end.
 * When `dd` command terminates, eject the device running `sudo diskutil eject <raw-name>`. In my case `sudo diskutil eject /dev/rdisk2`
-![Terminal result](https://github.com/KHP-Informatics/RADAR-Pi3/images/terminalresult.png)
+![Terminal result](https://github.com/KHP-Informatics/RADAR-Pi3/blob/master/images/terminalresult.png)
+
 ### Setting up Pi3
 * Connect mouse and keyboard by USB
 * Connect the HDMI cable
@@ -35,7 +37,7 @@ We need a SD card formatted with FAT32 file system.
 * Enable **USB debugging**
 * Go to About tablet > Status > IP address and note down Pi3's IP
 * Connect your laptop to the same network of Pi
-* Open a terminal and run `./adb connect <Pi3-IP>:5555`. Now you are able to run and debug your Android application on Pi3
+* Open a terminal and run `./adb connect <Pi3-IP>:5555`. You are now ready run and debug your Android application on Pi3
 * Alternatively, on your terminal run `./adb shell ip -f inet addr show wlan0`. This command automatically finds the IP of your Pi3
 * For shutting down your Pi3 open a terminal and run `./adb shell reboot -p`
 
@@ -45,7 +47,7 @@ See the [video](https://www.youtube.com/watch?v=ddVY6OEpZlU) until 5:10 minute
 ## Installing Android image on Ubuntu
 See the [video](https://www.youtube.com/watch?v=aSgQDhM84Ko)
 
-Sources:
-> [Android iso](http://geektillithertz.com/wordpress/index.php/2016/06/26/androidpi3cpugpu-update/)
-> [Android developer repository](https://github.com/peyo-hd)
-> [Set up SD card](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
+## Sources
+* [Android iso](http://geektillithertz.com/wordpress/index.php/2016/06/26/androidpi3cpugpu-update/) 
+* [Android developer repository](https://github.com/peyo-hd)
+* [Set up SD card](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
